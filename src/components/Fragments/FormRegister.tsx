@@ -43,7 +43,6 @@ const FormRegister = () => {
           type="password"
         ></InputForm>
         <Link
-          // Sebaiknya arahkan ke rute yang valid, contoh: /forgot-password
           to="/forgot-password"
           className="font-medium text-sm leading-[140%] tracking-[0.2px] text-[#333333AD] text-right"
         >
@@ -59,7 +58,7 @@ const FormRegister = () => {
           label="Masuk"
           bg="bg-[#E2FCD9CC]"
           textColor="text-[#3ECF4C]"
-          onClick={() => navigate("/Login")}
+          onClick={() => navigate("/login")}
           typeButton="button"
         ></Button>
         <LineOr></LineOr>

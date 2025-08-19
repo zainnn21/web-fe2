@@ -1,6 +1,6 @@
 import Header from "../Fragments/Header";
 import BodyHome from "../Fragments/BodyHome";
-import FooterHome from "../Fragments/FooterHome";
+import FooterHome from "../Fragments/Footer";
 
 const HomePageLayout = () => {
   return (

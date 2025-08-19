@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import ExitLogo from "../../../assets/exit.png";
+import { Link } from "react-router-dom";
 
 interface ProfileProps {
   srcprofile: string;
@@ -59,12 +60,12 @@ const Profile = ({ srcprofile, variant }: ProfileProps) => {
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col md:w-50 w-full"
             role="none"
           >
-            <a
-              href="#"
+            <Link
+              to="/myprofile"
               className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
             >
               Profile Saya
-            </a>
+            </Link>
           </div>
           <div
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col w-full"

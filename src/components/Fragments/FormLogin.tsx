@@ -42,7 +42,7 @@ const FormLogin = () => {
           label="Daftar"
           bg="bg-[#E2FCD9CC]"
           textColor="text-[#3ECF4C]"
-          onClick={() => navigate("/Register")}
+          onClick={() => navigate("/register")}
           typeButton="button"
         ></Button>
         <LineOr></LineOr>
