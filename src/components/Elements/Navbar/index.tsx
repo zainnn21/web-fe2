@@ -12,7 +12,7 @@ const Navbar = () => {
   // 2. Simulasi status login.
   // Di real aplikasi, nilai ini akan datang dari state management (seperti Context API atau Redux).
   // NOTE: Sementara Ubah nilai menjadi `false` untuk melihat tampilan jika pengguna belum login.
-  const isLoggedIn = true;
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   // Kondisi untuk mengecek apakah kita berada di halaman login atau register
   const isAuthPage = pathname === "/login" || pathname === "/register";

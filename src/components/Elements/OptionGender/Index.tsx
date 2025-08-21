@@ -10,7 +10,7 @@ const OptionList = ({ name, label }: OptionListProps) => {
   return (
     <div className="flex flex-col">
       <Label htmlFor={name}>{label}</Label>
-      <Option></Option>
+      <Option name={name}></Option>
     </div>
   );
 };

@@ -7,14 +7,15 @@ type NoHpProps = {
   label: string;
   placeholder: string;
   type: string;
+  countryCode: string;
 };
 
-const NoHp = ({ name, label, placeholder, type }: NoHpProps) => {
+const NoHp = ({ name, label, placeholder, type, countryCode }: NoHpProps) => {
   return (
     <div className="flex flex-col">
       <Label htmlFor={name}>{label}</Label>
       <div className="flex justify-between md:gap-6 gap-3">
-        <InputNo></InputNo>
+        <InputNo countryCode={countryCode}></InputNo>
         <Input type={type} name={name} placeholder={placeholder}></Input>
       </div>
     </div>

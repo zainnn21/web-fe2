@@ -14,7 +14,7 @@ const countryOptions: CountryOption[] = [
   { code: "+63", label: "Philippines", flag: FlagPhilippines },
 ];
 
-const InputNo = () => {
+const InputNo = ({ countryCode }: { countryCode: string }) => {
   const [selectedCountry, setSelectedCountry] = useState<CountryOption>(
     countryOptions[0]
   );
@@ -37,7 +37,7 @@ const InputNo = () => {
         />
       </div>
       <select
-        name="No Hp"
+        name={countryCode}
         className="rounded-md border border-solid border-[#3A35411F] md:w-28 h-12 w-19"
         value={selectedCountry.code}
         onChange={handleSelectChange}

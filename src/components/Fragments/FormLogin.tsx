@@ -6,13 +6,33 @@ import { Link, useNavigate } from "react-router-dom";
 const FormLogin = () => {
   const navigate = useNavigate();
 
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const emailLocalStorage = localStorage.getItem("email");
+    const passwordLocalStorage = localStorage.getItem("password");
+
+    const emailInput = event.target.email.value;
+    const passwordInput = event.target.password.value;
+
+    if (
+      emailInput !== emailLocalStorage ||
+      passwordInput !== passwordLocalStorage
+    ) {
+      alert("Email atau password salah");
+      return;
+    }
+    alert("Login berhasil");
+    localStorage.setItem("isLoggedIn", "true");
+    console.log("clicked");
+    navigate("/");
+  };
   return (
     <>
       <FormTitle
         title="Masuk ke Akun"
         paragraph="Yuk, lanjutin belajarmu di videobelajar."
       ></FormTitle>
-      <div className="gap-3 flex flex-col">
+      <form className="gap-3 flex flex-col" onSubmit={handleSubmit}>
         <InputForm
           label="E-Mail "
           name="email"
@@ -54,7 +74,7 @@ const FormLogin = () => {
           GoogleImg
           typeButton="button"
         ></Button>
-      </div>
+      </form>
     </>
   );
 };

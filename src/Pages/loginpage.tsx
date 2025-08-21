@@ -5,7 +5,7 @@ import FormLogin from "../components/Fragments/FormLogin";
 const LoginPage = () => {
   return (
     <>
-      <Header></Header>
+      <Header/>
       <div className="px-5 py-6 justify-center md:items-center flex min-h-screen">
         <AuthLayout>
           <FormLogin></FormLogin>

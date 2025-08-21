@@ -9,16 +9,72 @@ import NoHp from "../Elements/NoHp/index";
 const FormRegister = () => {
   const navigate = useNavigate();
 
+  //simpan data user di local storage
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log("clicked");
+    const namaLengkap = event.target.namalengkap.value;
+    const email = event.target.email.value;
+    const jenisKelamin = event.target.jeniskelamin.value;
+    const noHp = event.target.nohp.value;
+    const countryCode = event.target.countryCode.value;
+    const password = event.target.password.value;
+    const konfirmasiPassword = event.target.konfirmasipassword.value;
+
+    if (
+      !namaLengkap ||
+      !email ||
+      !jenisKelamin ||
+      !noHp ||
+      !password ||
+      !konfirmasiPassword ||
+      !countryCode
+    ) {
+      alert("Semua field harus diisi !!!");
+      return;
+    }
+
+    if (event.target.password.value !== event.target.konfirmasipassword.value) {
+      alert("Password tidak sama !!!");
+      return;
+    }
+
+    if (noHp.length < 8) {
+      alert("No Hp minimal 8 angka !!!");
+      return;
+    }
+
+    if (noHp.length > 15) {
+      alert("No Hp maksimal 15 angka !!!");
+      return;
+    }
+
+    if (!noHp.match(/^\d+$/)) {
+      alert("No Hp harus angka !!!");
+      return;
+    }
+
+    localStorage.setItem("namalengkap", namaLengkap);
+    localStorage.setItem("email", email);
+    localStorage.setItem("jeniskelamin", jenisKelamin);
+    localStorage.setItem("countryCode", countryCode);
+    localStorage.setItem("nohp", noHp);
+    localStorage.setItem("password", password);
+
+    navigate("/login");
+  };
+
   return (
     <>
       <FormTitle
         title="Pendaftaran Akun"
         paragraph="Yuk, daftarkan akunmu sekarang juga!"
       ></FormTitle>
-      <div className="gap-3 flex flex-col ">
+
+      <form className="gap-3 flex flex-col" onSubmit={handleSubmit}>
         <InputForm
           label="Nama Lengkap"
-          name="NamaLengkap"
+          name="namalengkap"
           placeholder=""
           type="text"
         ></InputForm>
@@ -28,8 +84,14 @@ const FormRegister = () => {
           placeholder=""
           type="email"
         ></InputForm>
-        <OptionGender label="Jenis Kelamin " name="JenisKelamin"></OptionGender>
-        <NoHp label="No. Hp " name="nohp" placeholder="" type="tel"></NoHp>
+        <OptionGender label="Jenis Kelamin " name="jeniskelamin"></OptionGender>
+        <NoHp
+          label="No. Hp "
+          name="nohp"
+          placeholder=""
+          type="tel"
+          countryCode="countryCode"
+        ></NoHp>
         <InputForm
           label="Kata Sandi "
           name="password"
@@ -38,7 +100,7 @@ const FormRegister = () => {
         ></InputForm>
         <InputForm
           label="Konfirmasi Kata Sandi "
-          name="password"
+          name="konfirmasipassword"
           placeholder=""
           type="password"
         ></InputForm>
@@ -70,7 +132,7 @@ const FormRegister = () => {
           GoogleImg
           typeButton="button"
         ></Button>
-      </div>
+      </form>
     </>
   );
 };

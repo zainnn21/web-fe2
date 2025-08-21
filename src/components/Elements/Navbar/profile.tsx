@@ -11,6 +11,10 @@ const Profile = ({ srcprofile, variant }: ProfileProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -49,57 +53,58 @@ const Profile = ({ srcprofile, variant }: ProfileProps) => {
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex-col md:w-50 w-full block md:hidden"
             role="none"
           >
-            <a
-              href="#"
+            <Link
+              to="#"
               className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
             >
               Kategori
-            </a>
+            </Link>
           </div>
           <div
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col md:w-50 w-full"
             role="none"
           >
-            <Link
-              to="/myprofile"
+            <a
+              href="/myprofile"
               className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
             >
               Profile Saya
+            </a>
+          </div>
+          <div
+            className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col w-full"
+            role="none"
+          >
+            <Link
+              to="#"
+              className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
+            >
+              Kelas Saya
             </Link>
           </div>
           <div
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col w-full"
             role="none"
           >
-            <a
-              href="#"
-              className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
-            >
-              Kelas Saya
-            </a>
-          </div>
-          <div
-            className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col w-full"
-            role="none"
-          >
-            <a
-              href="#"
+            <Link
+              to="#"
               className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
             >
               Pesananan Saya
-            </a>
+            </Link>
           </div>
           <div
             className="border-b px-3 py-4 gap-1.5 border-[#3A35411F] flex flex-col w-full"
             role="none"
           >
-            <a
-              href="#"
+            <Link
+              to="/"
+              onClick={handleLogout}
               className="flex font-medium text-base leading-[140%] tracking-[0.2px] text-[#FF5C2B] items-center gap-1.5"
             >
               Keluar{``}
               <img src={ExitLogo} alt="" />
-            </a>
+            </Link>
           </div>
         </div>
       )}
