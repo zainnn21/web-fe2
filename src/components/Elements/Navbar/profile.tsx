@@ -65,7 +65,7 @@ const Profile = ({ srcprofile, variant }: ProfileProps) => {
             role="none"
           >
             <a
-              href="/myprofile"
+              href="/my-profile"
               className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD]"
             >
               Profile Saya

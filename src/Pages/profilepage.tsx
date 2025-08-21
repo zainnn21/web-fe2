@@ -5,13 +5,13 @@ import Profile from "../components/Fragments/Profile";
 
 const ProfilePage = () => {
   return (
-    <>
+    <div className="flex flex-col justify-between h-screen">
       <Header />
       <ProfileLayout>
         <Profile />
       </ProfileLayout>
       <Footer />
-    </>
+    </div>
   );
 };
 

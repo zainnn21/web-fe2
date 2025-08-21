@@ -3,6 +3,8 @@ import HomePage from "./Pages/homepage";
 import LoginPage from "./Pages/loginpage";
 import RegisterPage from "./Pages/registerpage";
 import ProfilePage from "./Pages/profilepage";
+import AllProduct from "./Pages/allproductpage";
+
 
 /**
  * Konfigurasi utama untuk semua rute (halaman) dalam aplikasi.
@@ -21,8 +23,12 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: "/myprofile", 
+    path: "/my-profile", 
     element: <ProfilePage />,
+  },
+  {
+    path: "/all-product", 
+    element: <AllProduct />,
   },
 ]);
 

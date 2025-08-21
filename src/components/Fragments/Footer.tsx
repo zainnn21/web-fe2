@@ -22,7 +22,7 @@ const FooterHome = () => {
   };
 
   return (
-    <div className="bg-white border p-5 md:px-30 md:py-15 md:gap-5 gap-4 border-[#3A35411F] justify-center flex flex-col items-center">
+    <div className="bg-white border p-5 md:px-30 md:py-15 md:gap-5 gap-4 border-[#3A35411F] flex flex-col items-center">
       <div className="flex flex-col md:flex-row md:justify-between md:w-300 gap-4">
         <div className="flex flex-col gap-4 md:max-w-[352px]">
           <LogoImg></LogoImg>

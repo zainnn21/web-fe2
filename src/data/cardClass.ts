@@ -34,6 +34,8 @@ const cardClass = [
     id: 1,
     source: Card1,
     texttitle: "Big 4 Auditor Financial Analyst",
+    category: "Bisnis & Manajemen",
+    duration: "15 jam 30 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile1,
@@ -49,6 +51,8 @@ const cardClass = [
     id: 2,
     source: Card2,
     texttitle: "Full-Stack Web Developer Bootcamp",
+    category: "Digital & Teknologi",
+    duration: "40 jam 15 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile2,
@@ -64,6 +68,8 @@ const cardClass = [
     id: 3,
     source: Card3,
     texttitle: "Data Science & Machine Learning",
+    category: "Digital & Teknologi",
+    duration: "35 jam 0 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile3,
@@ -79,6 +85,8 @@ const cardClass = [
     id: 4,
     source: Card4,
     texttitle: "UI/UX Design for Mobile Apps",
+    category: "Digital & Teknologi",
+    duration: "25 jam 20 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile4,
@@ -94,6 +102,8 @@ const cardClass = [
     id: 5,
     source: Card5,
     texttitle: "Digital Marketing Mastery",
+    category: "Pemasaran",
+    duration: "18 jam 45 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile5,
@@ -109,6 +119,8 @@ const cardClass = [
     id: 6,
     source: Card6,
     texttitle: "Project Management Professional (PMP) Prep",
+    category: "Bisnis & Manajemen",
+    duration: "22 jam 10 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile6,
@@ -124,6 +136,8 @@ const cardClass = [
     id: 7,
     source: Card7,
     texttitle: "Cybersecurity for Beginners",
+    category: "Digital & Teknologi",
+    duration: "20 jam 0 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile7,
@@ -139,6 +153,8 @@ const cardClass = [
     id: 8,
     source: Card8,
     texttitle: "Cloud Engineering with AWS",
+    category: "Digital & Teknologi",
+    duration: "30 jam 5 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile8,
@@ -154,6 +170,8 @@ const cardClass = [
     id: 9,
     source: Card9,
     texttitle: "Content Strategy & SEO",
+    category: "Pemasaran",
+    duration: "12 jam 30 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile9,
@@ -169,6 +187,8 @@ const cardClass = [
     id: 10,
     source: Card1,
     texttitle: "iOS & Android App Development",
+    category: "Digital & Teknologi",
+    duration: "50 jam 0 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile1,
@@ -183,7 +203,9 @@ const cardClass = [
   {
     id: 11,
     source: Card2,
-    texttitle: "Big 4 Auditor Financial Analyst",
+    texttitle: "Public Speaking & Presentation Skills",
+    category: "Pengembangan Diri",
+    duration: "8 jam 45 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile2,
@@ -199,6 +221,8 @@ const cardClass = [
     id: 12,
     source: Card3,
     texttitle: "Full-Stack Web Developer Bootcamp",
+    category: "Digital & Teknologi",
+    duration: "42 jam 25 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile3,
@@ -213,7 +237,9 @@ const cardClass = [
   {
     id: 13,
     source: Card4,
-    texttitle: "Data Science & Machine Learning",
+    texttitle: "Advanced Financial Modeling",
+    category: "Bisnis & Manajemen",
+    duration: "28 jam 15 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile4,
@@ -229,6 +255,8 @@ const cardClass = [
     id: 14,
     source: Card5,
     texttitle: "UI/UX Design for Mobile Apps",
+    category: "Digital & Teknologi",
+    duration: "26 jam 0 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile5,
@@ -243,7 +271,9 @@ const cardClass = [
   {
     id: 15,
     source: Card6,
-    texttitle: "Digital Marketing Mastery",
+    texttitle: "Social Media Marketing",
+    category: "Pemasaran",
+    duration: "16 jam 20 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile6,
@@ -258,7 +288,9 @@ const cardClass = [
   {
     id: 16,
     source: Card7,
-    texttitle: "Project Management Professional (PMP) Prep",
+    texttitle: "Leadership & Team Management",
+    category: "Pengembangan Diri",
+    duration: "14 jam 0 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile7,
@@ -273,7 +305,9 @@ const cardClass = [
   {
     id: 17,
     source: Card8,
-    texttitle: "Cybersecurity for Beginners",
+    texttitle: "Ethical Hacking & Penetration Testing",
+    category: "Digital & Teknologi",
+    duration: "38 jam 30 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile8,
@@ -289,6 +323,8 @@ const cardClass = [
     id: 18,
     source: Card9,
     texttitle: "Cloud Engineering with AWS",
+    category: "Digital & Teknologi",
+    duration: "32 jam 10 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile9,
@@ -304,6 +340,8 @@ const cardClass = [
     id: 19,
     source: Card1,
     texttitle: "Content Strategy & SEO",
+    category: "Pemasaran",
+    duration: "13 jam 50 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile1,
@@ -319,6 +357,8 @@ const cardClass = [
     id: 20,
     source: Card2,
     texttitle: "iOS & Android App Development",
+    category: "Digital & Teknologi",
+    duration: "55 jam 0 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile2,
@@ -333,7 +373,9 @@ const cardClass = [
   {
     id: 21,
     source: Card3,
-    texttitle: "Big 4 Auditor Financial Analyst",
+    texttitle: "Investment Banking Analyst",
+    category: "Bisnis & Manajemen",
+    duration: "24 jam 40 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile3,
@@ -348,7 +390,9 @@ const cardClass = [
   {
     id: 22,
     source: Card4,
-    texttitle: "Full-Stack Web Developer Bootcamp",
+    texttitle: "React & Node.js: The Complete Guide",
+    category: "Digital & Teknologi",
+    duration: "45 jam 0 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile4,
@@ -364,6 +408,8 @@ const cardClass = [
     id: 23,
     source: Card5,
     texttitle: "Data Science & Machine Learning",
+    category: "Digital & Teknologi",
+    duration: "36 jam 20 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile5,
@@ -378,7 +424,9 @@ const cardClass = [
   {
     id: 24,
     source: Card6,
-    texttitle: "UI/UX Design for Mobile Apps",
+    texttitle: "Creative Thinking & Innovation",
+    category: "Pengembangan Diri",
+    duration: "10 jam 15 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile6,
@@ -394,6 +442,8 @@ const cardClass = [
     id: 25,
     source: Card7,
     texttitle: "Digital Marketing Mastery",
+    category: "Pemasaran",
+    duration: "19 jam 0 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile7,
@@ -408,7 +458,9 @@ const cardClass = [
   {
     id: 26,
     source: Card8,
-    texttitle: "Project Management Professional (PMP) Prep",
+    texttitle: "Agile & Scrum Master Certification",
+    category: "Bisnis & Manajemen",
+    duration: "18 jam 30 menit",
     ptitle:
       "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik.",
     srcprofile: Profile8,
@@ -424,6 +476,8 @@ const cardClass = [
     id: 27,
     source: Card9,
     texttitle: "Cybersecurity for Beginners",
+    category: "Digital & Teknologi",
+    duration: "21 jam 5 menit",
     ptitle:
       "Jadilah seorang profesional di bidang digital dengan bimbingan dari para ahli di industrinya.",
     srcprofile: Profile9,
@@ -438,7 +492,9 @@ const cardClass = [
   {
     id: 28,
     source: Card1,
-    texttitle: "Cloud Engineering with AWS",
+    texttitle: "Microsoft Azure Fundamentals",
+    category: "Digital & Teknologi",
+    duration: "25 jam 0 menit",
     ptitle:
       "Kurikulum yang dirancang khusus untuk pemula hingga mahir, dengan studi kasus nyata.",
     srcprofile: Profile1,
@@ -453,7 +509,9 @@ const cardClass = [
   {
     id: 29,
     source: Card2,
-    texttitle: "Content Strategy & SEO",
+    texttitle: "Email Marketing & Automation",
+    category: "Pemasaran",
+    duration: "9 jam 45 menit",
     ptitle:
       "Dapatkan portofolio yang kuat dan siap kerja setelah menyelesaikan kelas intensif ini.",
     srcprofile: Profile2,
@@ -468,7 +526,9 @@ const cardClass = [
   {
     id: 30,
     source: Card3,
-    texttitle: "iOS & Android App Development",
+    texttitle: "Personal Branding & Networking",
+    category: "Pengembangan Diri",
+    duration: "7 jam 30 menit",
     ptitle:
       "Belajar langsung dari praktisi berpengalaman dengan metode pembelajaran yang efektif.",
     srcprofile: Profile3,
