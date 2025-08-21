@@ -7,16 +7,17 @@ import CountryCode from "../Elements/MyProfile/countrycode";
 import userData from "../../data/userData";
 
 const Profile = () => {
-  //update data user di local storage
-  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("clicked");
-    localStorage.setItem("namalengkap", event.target.namalengkap.value);
-    localStorage.setItem("email", event.target.email.value);
-    localStorage.setItem("nohp", event.target.nohp.value);
-    localStorage.setItem("password", event.target.password.value);
-    localStorage.setItem("countryCode", event.target.countryCode.value);
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    Object.entries(data).forEach(([key, value]) => {
+      localStorage.setItem(key, value as string);
+    });
+    
     alert("Data berhasil diubah");
+    window.location.reload();
   };
   return (
     <>
@@ -59,7 +60,7 @@ const Profile = () => {
         <div className="flex flex-col gap-4 md:flex-row">
           <MyProfileForm
             label="Nama Lengkap"
-            name="namelenkap"
+            name="namalengkap"
             value={userData.name ?? ""}
           />
           <MyProfileForm
@@ -79,7 +80,7 @@ const Profile = () => {
           <CountryCode countryCode={userData.countryCode ?? ""} />
           <MyProfileForm
             label=""
-            name="phone"
+            name="nohp"
             type="tel"
             value={userData.nohp ?? ""}
           />

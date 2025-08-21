@@ -33,7 +33,7 @@ const Card = ({
 }: CardProps) => {
   return (
     <div
-      className={`md:w-96 rounded-[10px] bg-white border md:p-5 p-4 flex flex-col md:gap-4 gap-2  border-[#3A35411F] ${className}`}
+      className={`md:w-96 rounded-[10px] bg-white border md:p-5 p-4 flex flex-col md:gap-4 gap-2  border-[#3A35411F] ${className} hover:shadow-lg cursor-pointer hover:scale-105 transition-all duration-300 ease-in-out `}
     >
       <div className="flex gap-3 md:flex-col">
         <ImageCard source={source}></ImageCard>

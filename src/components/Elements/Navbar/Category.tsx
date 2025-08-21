@@ -5,9 +5,9 @@ interface CategoryProps {
 }
 const Category = ({ children }: CategoryProps) => {
   return (
-    <h1 className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD] hidden md:block">
+    <button className="font-medium text-base leading-[140%] tracking-[0.2px] text-[#333333AD] hidden md:block cursor-pointer hover:text-[#FF5C2B]">
       {children}
-    </h1>
+    </button>
   );
 };
 
