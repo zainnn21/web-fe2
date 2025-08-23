@@ -56,7 +56,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 bg-[#F4F5FA] border border-[#3A35411F] rounded-sm disabled:opacity-50 w-10 h-10 cursor-pointer"
+        className="px-4 py-2 bg-white border border-[#3A35411F] rounded-[10px] disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Go to previous page"
       >
         &lt;
@@ -78,9 +78,10 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             key={pageNumber}
             onClick={() => onPageChange(pageNumber as number)}
-            className={`p-2 rounded-sm font-semibold w-10 h-10 cursor-pointer ${
+            className={`p-2 border rounded-[10px] font-semibold w-10 h-10 cursor-pointer ${
               currentPage === pageNumber
-                && "bg-[#FFBD3A] text-white border-[#FFBD3A]"
+                ? "bg-[#FFBD3A] text-white border-[#FFBD3A]"
+                : "bg-white text-[#333333] border-[#3A35411F]"
             }`}
             aria-current={currentPage === pageNumber ? "page" : undefined}
           >
@@ -92,7 +93,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 bg-[#F4F5FA] border border-[#3A35411F] rounded-sm disabled:opacity-50 w-10 h-10 cursor-pointer"
+        className="px-4 py-2 bg-white border border-[#3A35411F] rounded-[10px] disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="Go to next page"
       >
         &gt;

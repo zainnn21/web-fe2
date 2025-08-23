@@ -26,9 +26,7 @@ const AllProduct = () => {
   const totalPages = Math.ceil(Data.length / itemsPerPage);
   // Menghitung index item pertama dan terakhir untuk halaman saat ini
   const indexOfLastItem = currentPage * itemsPerPage;
-  console.log(indexOfLastItem);
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  console.log(indexOfFirstItem);
   // Mengambil data untuk halaman saat ini menggunakan slice()
   const currentItems = Data.slice(indexOfFirstItem, indexOfLastItem);
 
