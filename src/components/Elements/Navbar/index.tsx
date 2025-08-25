@@ -4,15 +4,16 @@ import Category from "./Category";
 import Profile from "./profile";
 import PP from "../../../assets/profile.png";
 import Line3 from "../../../assets/3line.png";
+// import getUserData from "../../../data/getUserData";
 
 const Navbar = () => {
   // 1. Dapatkan path URL saat ini dengan hook `useLocation` dari React Router.
   const { pathname } = useLocation();
+  const getUserData = JSON.parse(localStorage.getItem("profileData") || "{}");
 
   // 2. Simulasi status login.
   // Di real aplikasi, nilai ini akan datang dari state management (seperti Context API atau Redux).
-  // NOTE: Sementara Ubah nilai menjadi `false` untuk melihat tampilan jika pengguna belum login.
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const isLoggedIn = getUserData.isLogin;
 
   // Kondisi untuk mengecek apakah kita berada di halaman login atau register
   const isAuthPage = pathname === "/login" || pathname === "/register";

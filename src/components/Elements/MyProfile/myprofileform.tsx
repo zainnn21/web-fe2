@@ -2,10 +2,11 @@ import { useId } from "react";
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
-  value: string;
+  value?: string;
+  placeHolder?: string;
 };
 
-const MyProfileForm = ({ label, type = "text", value, ...props }: Props) => {
+const MyProfileForm = ({ label, placeHolder, type = "text", value, ...props }: Props) => {
   const inputId = useId();
 
   return (
@@ -13,7 +14,7 @@ const MyProfileForm = ({ label, type = "text", value, ...props }: Props) => {
       <input
         id={inputId}
         type={type}
-        placeholder=""
+        placeholder={placeHolder}
         value={value}
         className="peer w-full rounded-lg border border-gray-300 p-4 text-base text-gray-900 h-[49px] placeholder-transparent focus:border-[#3ECF4C] focus:outline-none"
         {...props}

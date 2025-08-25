@@ -4,18 +4,29 @@ import NavigationButton from "../Elements/MyProfile/NavigationButton";
 import MyProfileForm from "../Elements/MyProfile/myprofileform";
 import Button from "../Elements/Button";
 import CountryCode from "../Elements/MyProfile/countrycode";
-import userData from "../../data/userData";
+import { useState } from "react";
 
 const Profile = () => {
+  const initialState = JSON.parse(localStorage.getItem("profileData") || "{}");
+  const [profile, setProfile] = useState(initialState);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      [name]: value,
+    }));
+  };
+
+  /*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Handles form submission to update user profile data
+   * @param {React.FormEvent<HTMLFormElement>} event - Form submission event
+   */
+  /*******  802e6541-9103-4eb2-b1d5-3344c4976481  *******/
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    
-    Object.entries(data).forEach(([key, value]) => {
-      localStorage.setItem(key, value as string);
-    });
-    
+    localStorage.setItem("profileData", JSON.stringify(profile));
     alert("Data berhasil diubah");
     window.location.reload();
   };
@@ -52,37 +63,44 @@ const Profile = () => {
         <MyProfile
           imgSrc="/myprofile.png"
           imgAlt="profile"
-          name={userData.name ?? ""}
-          email={userData.email ?? ""}
+          name={initialState.namaLengkap ?? ""}
+          email={initialState.email ?? ""}
           button="Ganti Foto Profil"
         />
 
         <div className="flex flex-col gap-4 md:flex-row">
           <MyProfileForm
             label="Nama Lengkap"
-            name="namalengkap"
-            value={userData.name ?? ""}
+            name="namaLengkap"
+            value={profile.namaLengkap ?? ""}
+            onChange={handleInputChange}
           />
           <MyProfileForm
             label="E-Mail"
             name="email"
             type="email"
-            value={userData.email ?? ""}
+            value={profile.email ?? ""}
+            onChange={handleInputChange}
           />
           <MyProfileForm
             label="Password"
             name="password"
             type="password"
-            value={userData.password ?? ""}
+            value={profile.password ?? ""}
+            onChange={handleInputChange}
           />
         </div>
         <div className="flex flex-col gap-4 md:flex-row">
-          <CountryCode countryCode={userData.countryCode ?? ""} />
+          <CountryCode
+            countryCode={profile.countryCode ?? ""}
+            onChange={handleInputChange}
+          />
           <MyProfileForm
             label=""
-            name="nohp"
+            name="noHp"
             type="tel"
-            value={userData.nohp ?? ""}
+            value={profile.noHp ?? ""}
+            onChange={handleInputChange}
           />
         </div>
 

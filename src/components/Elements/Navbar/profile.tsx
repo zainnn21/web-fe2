@@ -12,7 +12,16 @@ const Profile = ({ srcprofile, variant }: ProfileProps) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
+    const confirmLogout = window.confirm("Apakah Anda yakin ingin keluar?");
+    if (confirmLogout) {
+      const profileData = JSON.parse(
+        localStorage.getItem("profileData") || "{}"
+      );
+      if (profileData) {
+        profileData.isLogin = false;
+        localStorage.setItem("profileData", JSON.stringify(profileData));
+      }
+    }
   };
 
   useEffect(() => {

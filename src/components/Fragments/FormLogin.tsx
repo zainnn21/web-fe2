@@ -8,22 +8,29 @@ const FormLogin = () => {
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const emailLocalStorage = localStorage.getItem("email");
-    const passwordLocalStorage = localStorage.getItem("password");
+    const userProfile = localStorage.getItem("profileData");
 
+    if (userProfile === null) {
+      alert("Profile Tidak Ditemukan");
+      return;
+    }
+
+    const userData = JSON.parse(userProfile);
     const emailInput = event.target.email.value;
     const passwordInput = event.target.password.value;
+    console.log(emailInput, passwordInput);
+    console.log(userData);
+    console.log(userData.email);
 
-    if (
-      emailInput !== emailLocalStorage ||
-      passwordInput !== passwordLocalStorage
-    ) {
+    if (emailInput !== userData.email || passwordInput !== userData.password) {
       alert("Email atau password salah");
       return;
     }
+
     alert("Login berhasil");
-    localStorage.setItem("isLoggedIn", "true");
     console.log("clicked");
+    userData.isLogin = true;
+    localStorage.setItem("profileData", JSON.stringify(userData));
     navigate("/");
   };
   return (

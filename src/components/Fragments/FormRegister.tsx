@@ -13,54 +13,50 @@ const FormRegister = () => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log("clicked");
-    const namaLengkap = event.target.namalengkap.value;
-    const email = event.target.email.value;
-    const jenisKelamin = event.target.jeniskelamin.value;
-    const noHp = event.target.nohp.value;
-    const countryCode = event.target.countryCode.value;
-    const password = event.target.password.value;
-    const konfirmasiPassword = event.target.konfirmasipassword.value;
+    const userData = {
+      namaLengkap: event.target.namalengkap.value,
+      email: event.target.email.value,
+      jenisKelamin: event.target.jeniskelamin.value,
+      noHp: event.target.nohp.value,
+      password: event.target.password.value,
+      countryCode: event.target.countryCode.value,
+      konfirmasiPassword: event.target.konfirmasipassword.value,
+      isLogin: false,
+    };
 
     if (
-      !namaLengkap ||
-      !email ||
-      !jenisKelamin ||
-      !noHp ||
-      !password ||
-      !konfirmasiPassword ||
-      !countryCode
+      !userData.namaLengkap ||
+      !userData.email ||
+      !userData.jenisKelamin ||
+      !userData.noHp ||
+      !userData.password ||
+      !userData.konfirmasiPassword ||
+      !userData.countryCode
     ) {
       alert("Semua field harus diisi !!!");
       return;
     }
 
-    if (event.target.password.value !== event.target.konfirmasipassword.value) {
+    if (userData.password !== userData.konfirmasiPassword) {
       alert("Password tidak sama !!!");
       return;
     }
 
-    if (noHp.length < 8) {
+    if (userData.noHp.length < 8) {
       alert("No Hp minimal 8 angka !!!");
       return;
     }
 
-    if (noHp.length > 15) {
+    if (userData.noHp.length > 15) {
       alert("No Hp maksimal 15 angka !!!");
       return;
     }
 
-    if (!noHp.match(/^\d+$/)) {
+    if (!userData.noHp.match(/^\d+$/)) {
       alert("No Hp harus angka !!!");
       return;
     }
-
-    localStorage.setItem("namalengkap", namaLengkap);
-    localStorage.setItem("email", email);
-    localStorage.setItem("jeniskelamin", jenisKelamin);
-    localStorage.setItem("countryCode", countryCode);
-    localStorage.setItem("nohp", noHp);
-    localStorage.setItem("password", password);
-
+    localStorage.setItem("profileData", JSON.stringify(userData));
     navigate("/login");
   };
 

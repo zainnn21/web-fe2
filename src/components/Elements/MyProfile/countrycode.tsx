@@ -2,7 +2,7 @@ type CountryCodeProps = {
   countryCode: string;
 };
 
-const CountryCode = ({ countryCode }: CountryCodeProps) => {
+const CountryCode = ({ countryCode, onChange }: CountryCodeProps) => {
   return (
     <select
       name={countryCode}
