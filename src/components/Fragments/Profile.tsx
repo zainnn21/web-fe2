@@ -6,24 +6,39 @@ import Button from "../Elements/Button";
 import CountryCode from "../Elements/MyProfile/countrycode";
 import { useState } from "react";
 
-const Profile = () => {
-  const initialState = JSON.parse(localStorage.getItem("profileData") || "{}");
-  const [profile, setProfile] = useState(initialState);
+interface ProfileData {
+  namaLengkap?: string;
+  email?: string;
+  password?: string;
+  countryCode?: string;
+  noHp?: string;
+}
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+const Profile = () => {
+  const getInitialState = (): ProfileData => {
+    try {
+      return JSON.parse(localStorage.getItem("profileData") || "{}");
+    } catch (error) {
+      console.error("Gagal mem-parsing data profil dari localStorage", error);
+      return {};
+    }
+  };
+  const [profile, setProfile] = useState<ProfileData>(getInitialState());
+
+  const handleFieldChange = (name: string, value: string) => {
     setProfile((prevProfile) => ({
       ...prevProfile,
       [name]: value,
     }));
   };
 
-  /*************  ✨ Windsurf Command ⭐  *************/
-  /**
-   * Handles form submission to update user profile data
-   * @param {React.FormEvent<HTMLFormElement>} event - Form submission event
-   */
-  /*******  802e6541-9103-4eb2-b1d5-3344c4976481  *******/
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    handleFieldChange(event.target.name, event.target.value);
+
+  const handleCountryCodeChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => handleFieldChange("countryCode", event.target.value);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     localStorage.setItem("profileData", JSON.stringify(profile));
@@ -63,8 +78,8 @@ const Profile = () => {
         <MyProfile
           imgSrc="/myprofile.png"
           imgAlt="profile"
-          name={initialState.namaLengkap ?? ""}
-          email={initialState.email ?? ""}
+          name={getInitialState().namaLengkap ?? ""}
+          email={getInitialState().email ?? ""}
           button="Ganti Foto Profil"
         />
 
@@ -93,7 +108,7 @@ const Profile = () => {
         <div className="flex flex-col gap-4 md:flex-row">
           <CountryCode
             countryCode={profile.countryCode ?? ""}
-            onChange={handleInputChange}
+            onChange={handleCountryCodeChange}
           />
           <MyProfileForm
             label=""
