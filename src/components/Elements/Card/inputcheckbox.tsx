@@ -2,10 +2,10 @@ type Props = {
   name: string;
   variant?: string;
   id: string;
-  onClick?: () => void;
+  onChange?: () => void;
 };
 
-const InputCheckBox = ({ name, variant, id, onClick }: Props) => {
+const InputCheckBox = ({ name, variant, id, onChange }: Props) => {
   return (
     <div className="flex gap-3">
       <input
@@ -13,7 +13,7 @@ const InputCheckBox = ({ name, variant, id, onClick }: Props) => {
         className={`w-4.5 h-4.5 pt-0.5 pl-0.5 rounded-sm border border-[#3ECF4C] bg-[#E2FCD9CC] appearance-none     checked:bg-[#3ECF4C] cursor-pointer ${variant}`}
         id={id}
         name={id}
-        onClick={onClick}
+        onChange={onChange}
       />
       <label
         htmlFor={id}

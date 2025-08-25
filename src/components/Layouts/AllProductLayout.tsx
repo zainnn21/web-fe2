@@ -3,17 +3,28 @@ import Filter from "../Elements/Card/filter";
 import Card from "../Elements/Card";
 import Data from "../../data/cardClass";
 import Pagination from "../Elements/Card/Pagination";
+import ProductControls from "../Elements/Card/allproductcontrols";
 import { useEffect, useState } from "react";
 
 const AllProduct = () => {
   //Filter Product
-  const [filteredData, setFilteredData] = useState("all");
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
   const classFiltered =
-    filteredData === "all"
+    activeFilters.length === 0
       ? Data
-      : Data.filter((item) => item.category === filteredData);
+      : Data.filter((item) => activeFilters.includes(item.category));
+
   const [dataToRender, setDataToRender] = useState(classFiltered);
-  console.log(filteredData);
+  console.log(activeFilters);
+
+  const toggleFilter = (category: string) => {
+    setActiveFilters((prev) =>
+      prev.includes(category)
+        ? prev.filter((f) => f !== category)
+        : [...prev, category]
+    );
+  };
   // Sort Product Option
   const [selectedValue, setSelectedValue] = useState(`default`);
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,20 +36,20 @@ const AllProduct = () => {
   const handleReset = () => {
     setSelectedValue(`default`);
     setCurrentPage(1);
-    setFilteredData("all");
+    setActiveFilters([]);
   };
 
   useEffect(() => {
     const sortedAndFilteredData = [...classFiltered];
     setDataToRender(sortedAndFilteredData);
     setCurrentPage(1);
-  }, [filteredData, selectedValue]);
+  }, [activeFilters, selectedValue]);
 
   // --- Logika Paginasi ---
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // Tampilkan 6 item per halaman
   // Menghitung total halaman
-  const totalPages = Math.ceil(Data.length / itemsPerPage);
+  const totalPages = Math.ceil(dataToRender.length / itemsPerPage);
   // Menghitung index item pertama dan terakhir untuk halaman saat ini
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -53,46 +64,25 @@ const AllProduct = () => {
           {/* filter container */}
           <Filter
             handleReset={handleReset}
-            filterPemasaran={() => setFilteredData("Pemasaran")}
+            filterPemasaran={() => toggleFilter("Pemasaran")}
+            filterDigital={() => toggleFilter("Digital & Teknologi")}
+            filterPengembangan={() => toggleFilter("Pengembangan Diri")}
+            filterBisnis={() => toggleFilter("Bisnis & Manajemen")}
+            // filterGratis={() => setFilteredData("Gratis")}
+            // filterMurah={() => setFilteredData("Murah")}
+            // filterSedang={() => setFilteredData("Sedang")}
+            // filterMahal={() => setFilteredData("Mahal")}
+            // filter48jam={() => setFilteredData("48jam")}
+            // filterKurangDari4jam={() => setFilteredData("KurangDari4jam")}
+            // filterLebihDari8jam={() => setFilteredData("LebihDari8jam")}
           />
 
           {/* product container */}
           <div className="flex flex-col gap-8">
-            <div className="flex gap-4 justify-end">
-              <select
-                name="urutkan"
-                id="urutkan"
-                className="rounded-[10px] bg-white border px-3 border-[#3A35411F] cursor-pointer"
-                onChange={handleSelectChange}
-                value={selectedValue}
-              >
-                <option value="default" disabled>
-                  Urutkan
-                </option>
-                <option value="harga_terendah" className="rounded-[10px]">
-                  Harga Terendah
-                </option>
-                <option value="harga_tertinggi">Harga Tertinggi</option>
-                <option value="A to Z">A to Z</option>
-                <option value="Z to A">Z to A</option>
-                <option value="rating_tertinggi">Rating Tertinggi</option>
-                <option value="rating_terendah">Rating Terendah</option>
-              </select>
-              <div className="relative">
-                <input
-                  className="rounded-[10px] bg-white border px-3 py-3 border-[#3A35411F] cursor-pointer flex w-55 justify-between"
-                  placeholder="Cari Kelas"
-                  type="text"
-                  name="cari"
-                  id="cari"
-                />
-                <img
-                  src="/carikelas.png"
-                  alt=""
-                  className="absolute right-3 top-3 "
-                />
-              </div>
-            </div>
+            <ProductControls
+              selectedValue={selectedValue}
+              onSelectChange={handleSelectChange}
+            />
 
             {/*course section*/}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
